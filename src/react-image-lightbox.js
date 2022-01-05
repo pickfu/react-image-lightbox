@@ -1446,6 +1446,12 @@ class ReactImageLightbox extends Component {
       },
     };
 
+    const {
+      zoomInButton: ZoomInButton,
+      zoomOutButton: ZoomOutButton,
+      closeButton: CloseButton,
+    } = this.props;
+
     return (
       <Modal
         isOpen
@@ -1541,7 +1547,7 @@ class ReactImageLightbox extends Component {
 
               {enableZoom && (
                 <li className="ril-toolbar__item ril__toolbarItem">
-                  <button // Lightbox zoom in button
+                  <ZoomInButton // Lightbox zoom in button
                     type="button"
                     key="zoom-in"
                     aria-label={this.props.zoomInLabel}
@@ -1570,7 +1576,7 @@ class ReactImageLightbox extends Component {
 
               {enableZoom && (
                 <li className="ril-toolbar__item ril__toolbarItem">
-                  <button // Lightbox zoom out button
+                  <ZoomOutButton // Lightbox zoom out button
                     type="button"
                     key="zoom-out"
                     aria-label={this.props.zoomOutLabel}
@@ -1598,7 +1604,7 @@ class ReactImageLightbox extends Component {
               )}
 
               <li className="ril-toolbar__item ril__toolbarItem">
-                <button // Lightbox close button
+                <CloseButton // Lightbox close button
                   type="button"
                   key="close"
                   aria-label={this.props.closeLabel}
@@ -1770,9 +1776,15 @@ ReactImageLightbox.propTypes = {
 
   // custom loader
   loader: PropTypes.node,
+  zoomInButton: PropTypes.element,
+  zoomOutButton: PropTypes.element,
+  closeButton: PropTypes.element,
 };
 
 ReactImageLightbox.defaultProps = {
+  zoomInButton: props => <button type="button" {...props} />,
+  zoomOutButton: props => <button type="button" {...props} />,
+  closeButton: props => <button type="button" {...props} />,
   imageTitle: null,
   imageCaption: null,
   toolbarButtons: null,
