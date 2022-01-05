@@ -15,7 +15,8 @@
     "test:watch": "jest --watchAll",
     "deploy": "yarn run build:demo && gh-pages -d build",
     "release": "standard-version",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepack": "yarn run build"
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
